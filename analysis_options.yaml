@@ -1,1 +1,46 @@
 include: package:flutter_lints/flutter.yaml
+
+linter:
+  rules:
+    always_use_package_imports: true
+    sort_constructors_first: true
+    prefer_single_quotes: true
+    flutter_style_todos: false
+    no_leading_underscores_for_local_identifiers: false
+    use_super_parameters: true
+    avoid_redundant_argument_values: false
+
+analyzer:
+  language:
+    strict-casts: true
+    #strict-inference: true
+    #strict-raw-types: true
+  
+  # plugins:
+  # - string_literal_finder
+
+  exclude:
+    - "**/*.config.dart"
+    - "**/*.freezed.dart"
+    - "**/*.gr.dart"
+    - "**/*.g.dart"
+    - "lib/generated/**"
+
+
+  errors:
+    avoid_function_literals_in_foreach_calls: warning
+    prefer_constructors_over_static_methods: ignore
+    body_might_complete_normally_nullable: warning
+    avoid_positional_boolean_parameters: ignore
+    depend_on_referenced_packages: ignore
+    always_use_package_imports: ignore
+    invalid_annotation_target: ignore
+    require_trailing_commas: ignore
+    sort_constructors_first: ignore
+    sort_pub_dependencies: ignore
+    unawaited_futures: ignore
+    todo: warning
+    missing_required_param: error
+    must_be_immutable: error
+    missing_return: error
+    no_leading_underscores_for_local_identifiers: ignore

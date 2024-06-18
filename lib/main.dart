@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:github_user_search/service_locator.dart' as di;
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await di.init();
   runApp(const MainApp());
 }
 
