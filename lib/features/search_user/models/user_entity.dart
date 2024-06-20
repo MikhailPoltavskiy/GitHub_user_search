@@ -8,5 +8,6 @@ class UserEntity with _$UserEntity {
     @Default('') String name,
     @Default('') String avatarUrl,
     @Default(0) int followersCount,
+    @Default('') String reposUrl,
   }) = _UserEntity;
 }

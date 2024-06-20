@@ -11,12 +11,12 @@ class SearchUsersBloc extends Bloc<SearchUsersEvent, SearchUsersState> {
   SearchUsersBloc(
     this._remoteDataSource,
   ) : super(const SearchUsersState()) {
-    on<SearchUsers>(_searchUsers);
+    on<_SearchUsers>(_searchUsers);
   }
 
   final RemoteDataSource _remoteDataSource;
 
-  Future<void> _searchUsers(SearchUsers event, Emitter<SearchUsersState> emit) async {
+  Future<void> _searchUsers(_SearchUsers event, Emitter<SearchUsersState> emit) async {
     // if (state.isLoading) {
     //   return;
     // }

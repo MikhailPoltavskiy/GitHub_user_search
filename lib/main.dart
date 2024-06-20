@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:github_user_search/features/search_user/data/remote_data_source.dart';
+import 'package:github_user_search/features/search_user/presentation/bloc/repo_bloc.dart';
 import 'package:github_user_search/features/search_user/presentation/bloc/search_users_bloc.dart';
-import 'package:github_user_search/features/search_user/presentation/pages/home_page.dart';
+import 'package:github_user_search/features/search_user/presentation/pages/users_page.dart';
 import 'package:github_user_search/service_locator.dart' as di;
 import 'package:github_user_search/service_locator.dart';
 
@@ -24,8 +25,11 @@ class MainApp extends StatelessWidget {
         BlocProvider<SearchUsersBloc>(
           create: (context) => sl<SearchUsersBloc>(),
         ),
+        BlocProvider<RepoBloc>(
+          create: (context) => sl<RepoBloc>(),
+        )
       ],
-      child: MaterialApp(
+      child: const MaterialApp(
         home: Scaffold(
           // appBar: AppBar(
           //   actions: [
@@ -42,7 +46,7 @@ class MainApp extends StatelessWidget {
           // body: Center(
           //   child: Text('Hello World! \n${dotenv.env['GitHub_token']}'),
           // ),
-          body: HomePage(),
+          body: UsersPage(),
         ),
       ),
     );

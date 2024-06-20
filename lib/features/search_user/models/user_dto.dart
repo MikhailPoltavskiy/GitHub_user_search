@@ -10,6 +10,7 @@ class UserDto with _$UserDto {
     @JsonKey(name: 'login') @Default('') String login,
     @JsonKey(name: 'avatar_url') @Default('') String avatarUrl,
     @JsonKey(name: 'followers_url') @Default('') String followersUrl,
+    @JsonKey(name: 'repos_url') @Default('') String reposUrl,
     @Default(0) int followersCount,
   }) = _UserDto;
 
@@ -22,6 +23,7 @@ class UserDto with _$UserDto {
       name: login,
       avatarUrl: avatarUrl,
       followersCount: followersCount,
+      reposUrl: reposUrl,
     );
   }
 }

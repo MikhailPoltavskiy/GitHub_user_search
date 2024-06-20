@@ -35,17 +35,17 @@ mixin _$SearchUsersEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(SearchUsers value) searchUsers,
+    required TResult Function(_SearchUsers value) searchUsers,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SearchUsers value)? searchUsers,
+    TResult? Function(_SearchUsers value)? searchUsers,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(SearchUsers value)? searchUsers,
+    TResult Function(_SearchUsers value)? searchUsers,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -123,7 +123,7 @@ class __$$SearchUsersImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SearchUsersImpl implements SearchUsers {
+class _$SearchUsersImpl implements _SearchUsers {
   const _$SearchUsersImpl({required this.query});
 
   @override
@@ -182,7 +182,7 @@ class _$SearchUsersImpl implements SearchUsers {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(SearchUsers value) searchUsers,
+    required TResult Function(_SearchUsers value) searchUsers,
   }) {
     return searchUsers(this);
   }
@@ -190,7 +190,7 @@ class _$SearchUsersImpl implements SearchUsers {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SearchUsers value)? searchUsers,
+    TResult? Function(_SearchUsers value)? searchUsers,
   }) {
     return searchUsers?.call(this);
   }
@@ -198,7 +198,7 @@ class _$SearchUsersImpl implements SearchUsers {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(SearchUsers value)? searchUsers,
+    TResult Function(_SearchUsers value)? searchUsers,
     required TResult orElse(),
   }) {
     if (searchUsers != null) {
@@ -208,8 +208,8 @@ class _$SearchUsersImpl implements SearchUsers {
   }
 }
 
-abstract class SearchUsers implements SearchUsersEvent {
-  const factory SearchUsers({required final String query}) = _$SearchUsersImpl;
+abstract class _SearchUsers implements SearchUsersEvent {
+  const factory _SearchUsers({required final String query}) = _$SearchUsersImpl;
 
   @override
   String get query;

@@ -26,6 +26,8 @@ mixin _$UserDto {
   String get avatarUrl => throw _privateConstructorUsedError;
   @JsonKey(name: 'followers_url')
   String get followersUrl => throw _privateConstructorUsedError;
+  @JsonKey(name: 'repos_url')
+  String get reposUrl => throw _privateConstructorUsedError;
   int get followersCount => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -42,6 +44,7 @@ abstract class $UserDtoCopyWith<$Res> {
       {@JsonKey(name: 'login') String login,
       @JsonKey(name: 'avatar_url') String avatarUrl,
       @JsonKey(name: 'followers_url') String followersUrl,
+      @JsonKey(name: 'repos_url') String reposUrl,
       int followersCount});
 }
 
@@ -61,6 +64,7 @@ class _$UserDtoCopyWithImpl<$Res, $Val extends UserDto>
     Object? login = null,
     Object? avatarUrl = null,
     Object? followersUrl = null,
+    Object? reposUrl = null,
     Object? followersCount = null,
   }) {
     return _then(_value.copyWith(
@@ -75,6 +79,10 @@ class _$UserDtoCopyWithImpl<$Res, $Val extends UserDto>
       followersUrl: null == followersUrl
           ? _value.followersUrl
           : followersUrl // ignore: cast_nullable_to_non_nullable
+              as String,
+      reposUrl: null == reposUrl
+          ? _value.reposUrl
+          : reposUrl // ignore: cast_nullable_to_non_nullable
               as String,
       followersCount: null == followersCount
           ? _value.followersCount
@@ -95,6 +103,7 @@ abstract class _$$UserDtoImplCopyWith<$Res> implements $UserDtoCopyWith<$Res> {
       {@JsonKey(name: 'login') String login,
       @JsonKey(name: 'avatar_url') String avatarUrl,
       @JsonKey(name: 'followers_url') String followersUrl,
+      @JsonKey(name: 'repos_url') String reposUrl,
       int followersCount});
 }
 
@@ -112,6 +121,7 @@ class __$$UserDtoImplCopyWithImpl<$Res>
     Object? login = null,
     Object? avatarUrl = null,
     Object? followersUrl = null,
+    Object? reposUrl = null,
     Object? followersCount = null,
   }) {
     return _then(_$UserDtoImpl(
@@ -126,6 +136,10 @@ class __$$UserDtoImplCopyWithImpl<$Res>
       followersUrl: null == followersUrl
           ? _value.followersUrl
           : followersUrl // ignore: cast_nullable_to_non_nullable
+              as String,
+      reposUrl: null == reposUrl
+          ? _value.reposUrl
+          : reposUrl // ignore: cast_nullable_to_non_nullable
               as String,
       followersCount: null == followersCount
           ? _value.followersCount
@@ -142,6 +156,7 @@ class _$UserDtoImpl extends _UserDto {
       {@JsonKey(name: 'login') this.login = '',
       @JsonKey(name: 'avatar_url') this.avatarUrl = '',
       @JsonKey(name: 'followers_url') this.followersUrl = '',
+      @JsonKey(name: 'repos_url') this.reposUrl = '',
       this.followersCount = 0})
       : super._();
 
@@ -158,12 +173,15 @@ class _$UserDtoImpl extends _UserDto {
   @JsonKey(name: 'followers_url')
   final String followersUrl;
   @override
+  @JsonKey(name: 'repos_url')
+  final String reposUrl;
+  @override
   @JsonKey()
   final int followersCount;
 
   @override
   String toString() {
-    return 'UserDto(login: $login, avatarUrl: $avatarUrl, followersUrl: $followersUrl, followersCount: $followersCount)';
+    return 'UserDto(login: $login, avatarUrl: $avatarUrl, followersUrl: $followersUrl, reposUrl: $reposUrl, followersCount: $followersCount)';
   }
 
   @override
@@ -176,14 +194,16 @@ class _$UserDtoImpl extends _UserDto {
                 other.avatarUrl == avatarUrl) &&
             (identical(other.followersUrl, followersUrl) ||
                 other.followersUrl == followersUrl) &&
+            (identical(other.reposUrl, reposUrl) ||
+                other.reposUrl == reposUrl) &&
             (identical(other.followersCount, followersCount) ||
                 other.followersCount == followersCount));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, login, avatarUrl, followersUrl, followersCount);
+  int get hashCode => Object.hash(
+      runtimeType, login, avatarUrl, followersUrl, reposUrl, followersCount);
 
   @JsonKey(ignore: true)
   @override
@@ -204,6 +224,7 @@ abstract class _UserDto extends UserDto {
       {@JsonKey(name: 'login') final String login,
       @JsonKey(name: 'avatar_url') final String avatarUrl,
       @JsonKey(name: 'followers_url') final String followersUrl,
+      @JsonKey(name: 'repos_url') final String reposUrl,
       final int followersCount}) = _$UserDtoImpl;
   const _UserDto._() : super._();
 
@@ -218,6 +239,9 @@ abstract class _UserDto extends UserDto {
   @override
   @JsonKey(name: 'followers_url')
   String get followersUrl;
+  @override
+  @JsonKey(name: 'repos_url')
+  String get reposUrl;
   @override
   int get followersCount;
   @override
