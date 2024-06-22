@@ -15,7 +15,8 @@ class UserEntity with _$UserEntity {
   const factory UserEntity({
     @Default('') String name,
     @Default('') String avatarUrl,
-    @Default(0) int followersCount,
+    String? followersCount,
     @Default('') String reposUrl,
+    @Default('') String followersUrl,
   }) = _UserEntity;
 }

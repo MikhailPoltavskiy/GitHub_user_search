@@ -33,11 +33,19 @@ class SearchUsersBloc extends Bloc<SearchUsersEvent, SearchUsersState> {
       ));
 
       final result = await _remoteDataSource.searchUsers(event.query);
+      final usersList = result.usersListEntity;
+      List<UserEntity> userListWithCount = [];
+      for (var item in usersList) {
+        final countFollowers = await _remoteDataSource.fetchCountFollowers(item.followersUrl);
+        final newItem = item.copyWith(followersCount: countFollowers);
+        userListWithCount.add(newItem);
+      }
 
       emit(state.copyWith(
         nextPage: result.nextPage,
         isLoading: false,
-        usersList: result.usersListEntity,
+        // usersList: result.usersListEntity,
+        usersList: userListWithCount,
         failure: null,
       ));
     } catch (error) {

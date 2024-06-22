@@ -64,7 +64,7 @@ class RemoteDataSource {
     if (response.statusCode == 200) {
       String? linkHeader = response.headers.value('Link');
       String? lastPage = linkHeader != null ? parseLastPage(linkHeader) : null;
-
+      print('LastPage: $lastPage');
       return lastPage;
     } else {
       throw Exception('Failed to load repos');

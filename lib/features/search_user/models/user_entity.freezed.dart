@@ -165,8 +165,9 @@ abstract class _UsersListEntity implements UsersListEntity {
 mixin _$UserEntity {
   String get name => throw _privateConstructorUsedError;
   String get avatarUrl => throw _privateConstructorUsedError;
-  int get followersCount => throw _privateConstructorUsedError;
+  String? get followersCount => throw _privateConstructorUsedError;
   String get reposUrl => throw _privateConstructorUsedError;
+  String get followersUrl => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $UserEntityCopyWith<UserEntity> get copyWith =>
@@ -180,7 +181,11 @@ abstract class $UserEntityCopyWith<$Res> {
       _$UserEntityCopyWithImpl<$Res, UserEntity>;
   @useResult
   $Res call(
-      {String name, String avatarUrl, int followersCount, String reposUrl});
+      {String name,
+      String avatarUrl,
+      String? followersCount,
+      String reposUrl,
+      String followersUrl});
 }
 
 /// @nodoc
@@ -198,8 +203,9 @@ class _$UserEntityCopyWithImpl<$Res, $Val extends UserEntity>
   $Res call({
     Object? name = null,
     Object? avatarUrl = null,
-    Object? followersCount = null,
+    Object? followersCount = freezed,
     Object? reposUrl = null,
+    Object? followersUrl = null,
   }) {
     return _then(_value.copyWith(
       name: null == name
@@ -210,13 +216,17 @@ class _$UserEntityCopyWithImpl<$Res, $Val extends UserEntity>
           ? _value.avatarUrl
           : avatarUrl // ignore: cast_nullable_to_non_nullable
               as String,
-      followersCount: null == followersCount
+      followersCount: freezed == followersCount
           ? _value.followersCount
           : followersCount // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String?,
       reposUrl: null == reposUrl
           ? _value.reposUrl
           : reposUrl // ignore: cast_nullable_to_non_nullable
+              as String,
+      followersUrl: null == followersUrl
+          ? _value.followersUrl
+          : followersUrl // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -231,7 +241,11 @@ abstract class _$$UserEntityImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String name, String avatarUrl, int followersCount, String reposUrl});
+      {String name,
+      String avatarUrl,
+      String? followersCount,
+      String reposUrl,
+      String followersUrl});
 }
 
 /// @nodoc
@@ -247,8 +261,9 @@ class __$$UserEntityImplCopyWithImpl<$Res>
   $Res call({
     Object? name = null,
     Object? avatarUrl = null,
-    Object? followersCount = null,
+    Object? followersCount = freezed,
     Object? reposUrl = null,
+    Object? followersUrl = null,
   }) {
     return _then(_$UserEntityImpl(
       name: null == name
@@ -259,13 +274,17 @@ class __$$UserEntityImplCopyWithImpl<$Res>
           ? _value.avatarUrl
           : avatarUrl // ignore: cast_nullable_to_non_nullable
               as String,
-      followersCount: null == followersCount
+      followersCount: freezed == followersCount
           ? _value.followersCount
           : followersCount // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String?,
       reposUrl: null == reposUrl
           ? _value.reposUrl
           : reposUrl // ignore: cast_nullable_to_non_nullable
+              as String,
+      followersUrl: null == followersUrl
+          ? _value.followersUrl
+          : followersUrl // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -277,8 +296,9 @@ class _$UserEntityImpl implements _UserEntity {
   const _$UserEntityImpl(
       {this.name = '',
       this.avatarUrl = '',
-      this.followersCount = 0,
-      this.reposUrl = ''});
+      this.followersCount,
+      this.reposUrl = '',
+      this.followersUrl = ''});
 
   @override
   @JsonKey()
@@ -287,15 +307,17 @@ class _$UserEntityImpl implements _UserEntity {
   @JsonKey()
   final String avatarUrl;
   @override
-  @JsonKey()
-  final int followersCount;
+  final String? followersCount;
   @override
   @JsonKey()
   final String reposUrl;
+  @override
+  @JsonKey()
+  final String followersUrl;
 
   @override
   String toString() {
-    return 'UserEntity(name: $name, avatarUrl: $avatarUrl, followersCount: $followersCount, reposUrl: $reposUrl)';
+    return 'UserEntity(name: $name, avatarUrl: $avatarUrl, followersCount: $followersCount, reposUrl: $reposUrl, followersUrl: $followersUrl)';
   }
 
   @override
@@ -309,12 +331,14 @@ class _$UserEntityImpl implements _UserEntity {
             (identical(other.followersCount, followersCount) ||
                 other.followersCount == followersCount) &&
             (identical(other.reposUrl, reposUrl) ||
-                other.reposUrl == reposUrl));
+                other.reposUrl == reposUrl) &&
+            (identical(other.followersUrl, followersUrl) ||
+                other.followersUrl == followersUrl));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, name, avatarUrl, followersCount, reposUrl);
+  int get hashCode => Object.hash(
+      runtimeType, name, avatarUrl, followersCount, reposUrl, followersUrl);
 
   @JsonKey(ignore: true)
   @override
@@ -327,17 +351,20 @@ abstract class _UserEntity implements UserEntity {
   const factory _UserEntity(
       {final String name,
       final String avatarUrl,
-      final int followersCount,
-      final String reposUrl}) = _$UserEntityImpl;
+      final String? followersCount,
+      final String reposUrl,
+      final String followersUrl}) = _$UserEntityImpl;
 
   @override
   String get name;
   @override
   String get avatarUrl;
   @override
-  int get followersCount;
+  String? get followersCount;
   @override
   String get reposUrl;
+  @override
+  String get followersUrl;
   @override
   @JsonKey(ignore: true)
   _$$UserEntityImplCopyWith<_$UserEntityImpl> get copyWith =>

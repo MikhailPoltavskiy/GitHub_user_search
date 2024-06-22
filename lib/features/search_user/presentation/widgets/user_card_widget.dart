@@ -78,7 +78,7 @@ class UserCardWidget extends StatelessWidget {
                         ),
                         _LineOfText(
                           label: 'Followers: ',
-                          value: user.followersCount.toString(),
+                          value: user.followersCount ?? '0',
                         ),
                       ],
                     ),

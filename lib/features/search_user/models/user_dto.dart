@@ -34,7 +34,6 @@ class UserDto with _$UserDto {
     @JsonKey(name: 'avatar_url') @Default('') String avatarUrl,
     @JsonKey(name: 'followers_url') @Default('') String followersUrl,
     @JsonKey(name: 'repos_url') @Default('') String reposUrl,
-    @Default(0) int followersCount,
   }) = _UserDto;
 
   const UserDto._();
@@ -45,8 +44,8 @@ class UserDto with _$UserDto {
     return UserEntity(
       name: login,
       avatarUrl: avatarUrl,
-      followersCount: followersCount,
       reposUrl: reposUrl,
+      followersUrl: followersUrl,
     );
   }
 }
