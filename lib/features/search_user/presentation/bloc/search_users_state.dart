@@ -3,6 +3,7 @@ part of 'search_users_bloc.dart';
 @freezed
 class SearchUsersState with _$SearchUsersState {
   const factory SearchUsersState({
+    String? nextPage,
     @Default(false) bool isLoading,
     @Default([]) List<UserEntity> usersList,
     Object? failure,

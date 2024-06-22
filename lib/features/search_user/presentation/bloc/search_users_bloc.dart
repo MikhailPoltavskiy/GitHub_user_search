@@ -13,31 +13,70 @@ class SearchUsersBloc extends Bloc<SearchUsersEvent, SearchUsersState> {
     this._remoteDataSource,
   ) : super(const SearchUsersState()) {
     on<_SearchUsers>(_searchUsers);
+    on<_UpdateSearchUsers>(_updateSearchUsers);
   }
 
   final RemoteDataSource _remoteDataSource;
 
-  Future<void> _searchUsers(_SearchUsers event, Emitter<SearchUsersState> emit) async {
-    // if (state.isLoading) {
-    //   return;
-    // }
+  Future<void> _searchUsers(
+    _SearchUsers event,
+    Emitter<SearchUsersState> emit,
+  ) async {
+    if (state.isLoading) {
+      return;
+    }
 
+    try {
+      emit(const SearchUsersState(
+        isLoading: true,
+        failure: null,
+      ));
+
+      final result = await _remoteDataSource.searchUsers(event.query);
+
+      emit(state.copyWith(
+        nextPage: result.nextPage,
+        isLoading: false,
+        usersList: result.usersListEntity,
+        failure: null,
+      ));
+    } catch (error) {
+      if (kDebugMode) {
+        print(error);
+      }
+      emit(state.copyWith(
+        isLoading: false,
+        failure: error,
+      ));
+    }
+  }
+
+  Future<void> _updateSearchUsers(
+    _UpdateSearchUsers event,
+    Emitter<SearchUsersState> emit,
+  ) async {
+    if (state.nextPage == null) {
+      return;
+    }
+    if (state.isLoading) {
+      return;
+    }
     try {
       emit(state.copyWith(
         isLoading: true,
         failure: null,
       ));
-      final usersList = await _remoteDataSource.searchUsers(event.query);
-      // print('BLOC!!!: $usersList');
 
-      emit(SearchUsersState(
+      final result = await _remoteDataSource.updateSearchUsers(state.nextPage!);
+      List<UserEntity> usersList = state.usersList + result.usersListEntity;
+      emit(state.copyWith(
+        nextPage: result.nextPage,
         isLoading: false,
         usersList: usersList,
-        failure: null,
       ));
     } catch (error) {
       if (kDebugMode) {
-        print('ERROR: $error');
+        print(error);
       }
       emit(state.copyWith(
         isLoading: false,

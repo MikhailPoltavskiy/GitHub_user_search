@@ -15,6 +15,153 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
+mixin _$UsersListEntity {
+  String? get nextPage => throw _privateConstructorUsedError;
+  List<UserEntity> get usersListEntity => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $UsersListEntityCopyWith<UsersListEntity> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $UsersListEntityCopyWith<$Res> {
+  factory $UsersListEntityCopyWith(
+          UsersListEntity value, $Res Function(UsersListEntity) then) =
+      _$UsersListEntityCopyWithImpl<$Res, UsersListEntity>;
+  @useResult
+  $Res call({String? nextPage, List<UserEntity> usersListEntity});
+}
+
+/// @nodoc
+class _$UsersListEntityCopyWithImpl<$Res, $Val extends UsersListEntity>
+    implements $UsersListEntityCopyWith<$Res> {
+  _$UsersListEntityCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? nextPage = freezed,
+    Object? usersListEntity = null,
+  }) {
+    return _then(_value.copyWith(
+      nextPage: freezed == nextPage
+          ? _value.nextPage
+          : nextPage // ignore: cast_nullable_to_non_nullable
+              as String?,
+      usersListEntity: null == usersListEntity
+          ? _value.usersListEntity
+          : usersListEntity // ignore: cast_nullable_to_non_nullable
+              as List<UserEntity>,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$UsersListEntityImplCopyWith<$Res>
+    implements $UsersListEntityCopyWith<$Res> {
+  factory _$$UsersListEntityImplCopyWith(_$UsersListEntityImpl value,
+          $Res Function(_$UsersListEntityImpl) then) =
+      __$$UsersListEntityImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String? nextPage, List<UserEntity> usersListEntity});
+}
+
+/// @nodoc
+class __$$UsersListEntityImplCopyWithImpl<$Res>
+    extends _$UsersListEntityCopyWithImpl<$Res, _$UsersListEntityImpl>
+    implements _$$UsersListEntityImplCopyWith<$Res> {
+  __$$UsersListEntityImplCopyWithImpl(
+      _$UsersListEntityImpl _value, $Res Function(_$UsersListEntityImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? nextPage = freezed,
+    Object? usersListEntity = null,
+  }) {
+    return _then(_$UsersListEntityImpl(
+      nextPage: freezed == nextPage
+          ? _value.nextPage
+          : nextPage // ignore: cast_nullable_to_non_nullable
+              as String?,
+      usersListEntity: null == usersListEntity
+          ? _value._usersListEntity
+          : usersListEntity // ignore: cast_nullable_to_non_nullable
+              as List<UserEntity>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$UsersListEntityImpl implements _UsersListEntity {
+  const _$UsersListEntityImpl(
+      {this.nextPage, final List<UserEntity> usersListEntity = const []})
+      : _usersListEntity = usersListEntity;
+
+  @override
+  final String? nextPage;
+  final List<UserEntity> _usersListEntity;
+  @override
+  @JsonKey()
+  List<UserEntity> get usersListEntity {
+    if (_usersListEntity is EqualUnmodifiableListView) return _usersListEntity;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_usersListEntity);
+  }
+
+  @override
+  String toString() {
+    return 'UsersListEntity(nextPage: $nextPage, usersListEntity: $usersListEntity)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UsersListEntityImpl &&
+            (identical(other.nextPage, nextPage) ||
+                other.nextPage == nextPage) &&
+            const DeepCollectionEquality()
+                .equals(other._usersListEntity, _usersListEntity));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, nextPage,
+      const DeepCollectionEquality().hash(_usersListEntity));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UsersListEntityImplCopyWith<_$UsersListEntityImpl> get copyWith =>
+      __$$UsersListEntityImplCopyWithImpl<_$UsersListEntityImpl>(
+          this, _$identity);
+}
+
+abstract class _UsersListEntity implements UsersListEntity {
+  const factory _UsersListEntity(
+      {final String? nextPage,
+      final List<UserEntity> usersListEntity}) = _$UsersListEntityImpl;
+
+  @override
+  String? get nextPage;
+  @override
+  List<UserEntity> get usersListEntity;
+  @override
+  @JsonKey(ignore: true)
+  _$$UsersListEntityImplCopyWith<_$UsersListEntityImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$UserEntity {
   String get name => throw _privateConstructorUsedError;
   String get avatarUrl => throw _privateConstructorUsedError;

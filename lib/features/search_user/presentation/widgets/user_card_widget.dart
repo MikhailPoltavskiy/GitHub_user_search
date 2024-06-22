@@ -9,13 +9,15 @@ class UserCardWidget extends StatelessWidget {
   const UserCardWidget({
     super.key,
     required this.user,
+    required this.index,
   });
 
   final UserEntity user;
+  final int index;
 
   @override
   Widget build(BuildContext context) {
-    final imageSize = MediaQuery.of(context).size.width * 0.3;
+    final imageSize = MediaQuery.of(context).size.width;
     return InkWell(
       onTap: () async {
         context.read<RepoBloc>().add(RepoEvent.fetchRepos(url: user.reposUrl));
@@ -37,46 +39,59 @@ class UserCardWidget extends StatelessWidget {
             ),
             borderRadius: BorderRadius.circular(8),
           ),
-          child: Row(
+          child: Stack(
             children: [
-              Padding(
-                padding: const EdgeInsets.all(1.0),
-                child: SizedBox(
-                  width: imageSize,
-                  height: imageSize,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(8.0),
-                    child: Image.network(
-                      user.avatarUrl,
-                      loadingBuilder: (context, child, loadingProgress) {
-                        if (loadingProgress == null) {
-                          return child;
-                        }
-                        return Center(
-                          child: CircularProgressIndicator(
-                            value: loadingProgress.expectedTotalBytes != null
-                                ? loadingProgress.cumulativeBytesLoaded / loadingProgress.expectedTotalBytes!
-                                : null,
-                          ),
-                        );
-                      },
+              Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(1.0),
+                    child: SizedBox(
+                      width: imageSize * 0.3,
+                      height: imageSize * 0.3,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(8.0),
+                        child: Image.network(
+                          user.avatarUrl,
+                          loadingBuilder: (context, child, loadingProgress) {
+                            if (loadingProgress == null) {
+                              return child;
+                            }
+                            return Center(
+                              child: CircularProgressIndicator(
+                                value: loadingProgress.expectedTotalBytes != null
+                                    ? loadingProgress.cumulativeBytesLoaded / loadingProgress.expectedTotalBytes!
+                                    : null,
+                              ),
+                            );
+                          },
+                        ),
+                      ),
                     ),
                   ),
-                ),
+                  ConstrainedBox(
+                    constraints: BoxConstraints(minWidth: MediaQuery.of(context).size.width * 0.6),
+                    child: Column(
+                      children: [
+                        _LineOfText(
+                          label: null,
+                          value: user.name,
+                        ),
+                        _LineOfText(
+                          label: 'Followers: ',
+                          value: user.followersCount.toString(),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ),
-              ConstrainedBox(
-                constraints: BoxConstraints(minWidth: MediaQuery.of(context).size.width * 0.6),
-                child: Column(
-                  children: [
-                    _LineOfText(
-                      label: null,
-                      value: user.name,
-                    ),
-                    _LineOfText(
-                      label: 'Followers: ',
-                      value: user.followersCount.toString(),
-                    ),
-                  ],
+              Padding(
+                padding: EdgeInsets.only(
+                  top: 15,
+                  left: imageSize * 0.88,
+                ),
+                child: Text(
+                  (index + 1).toString(),
                 ),
               ),
             ],

@@ -5,6 +5,29 @@ part 'user_dto.freezed.dart';
 part 'user_dto.g.dart';
 
 @freezed
+class UsersListDto with _$UsersListDto {
+  const factory UsersListDto({
+    String? nextPage,
+    @Default([]) List<UserDto> users,
+  }) = _UsersListDto;
+
+  const UsersListDto._();
+
+  factory UsersListDto.fromJson(List<dynamic> json) {
+    return UsersListDto(
+      users: json.map((e) => UserDto.fromJson(e as Map<String, dynamic>)).toList(),
+    );
+  }
+
+  UsersListEntity toEntity() {
+    return UsersListEntity(
+      nextPage: nextPage,
+      usersListEntity: users.map((e) => e.toEntity()).toList(),
+    );
+  }
+}
+
+@freezed
 class UserDto with _$UserDto {
   const factory UserDto({
     @JsonKey(name: 'login') @Default('') String login,

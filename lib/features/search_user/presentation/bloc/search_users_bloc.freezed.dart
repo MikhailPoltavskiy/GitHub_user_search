@@ -16,42 +16,43 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$SearchUsersEvent {
-  String get query => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String query) searchUsers,
+    required TResult Function() updateSearchUsers,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String query)? searchUsers,
+    TResult? Function()? updateSearchUsers,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String query)? searchUsers,
+    TResult Function()? updateSearchUsers,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_SearchUsers value) searchUsers,
+    required TResult Function(_UpdateSearchUsers value) updateSearchUsers,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SearchUsers value)? searchUsers,
+    TResult? Function(_UpdateSearchUsers value)? updateSearchUsers,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SearchUsers value)? searchUsers,
+    TResult Function(_UpdateSearchUsers value)? updateSearchUsers,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $SearchUsersEventCopyWith<SearchUsersEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -60,8 +61,6 @@ abstract class $SearchUsersEventCopyWith<$Res> {
   factory $SearchUsersEventCopyWith(
           SearchUsersEvent value, $Res Function(SearchUsersEvent) then) =
       _$SearchUsersEventCopyWithImpl<$Res, SearchUsersEvent>;
-  @useResult
-  $Res call({String query});
 }
 
 /// @nodoc
@@ -73,28 +72,13 @@ class _$SearchUsersEventCopyWithImpl<$Res, $Val extends SearchUsersEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? query = null,
-  }) {
-    return _then(_value.copyWith(
-      query: null == query
-          ? _value.query
-          : query // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$SearchUsersImplCopyWith<$Res>
-    implements $SearchUsersEventCopyWith<$Res> {
+abstract class _$$SearchUsersImplCopyWith<$Res> {
   factory _$$SearchUsersImplCopyWith(
           _$SearchUsersImpl value, $Res Function(_$SearchUsersImpl) then) =
       __$$SearchUsersImplCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({String query});
 }
@@ -163,6 +147,7 @@ class _$SearchUsersImpl with DiagnosticableTreeMixin implements _SearchUsers {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String query) searchUsers,
+    required TResult Function() updateSearchUsers,
   }) {
     return searchUsers(query);
   }
@@ -171,6 +156,7 @@ class _$SearchUsersImpl with DiagnosticableTreeMixin implements _SearchUsers {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String query)? searchUsers,
+    TResult? Function()? updateSearchUsers,
   }) {
     return searchUsers?.call(query);
   }
@@ -179,6 +165,7 @@ class _$SearchUsersImpl with DiagnosticableTreeMixin implements _SearchUsers {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String query)? searchUsers,
+    TResult Function()? updateSearchUsers,
     required TResult orElse(),
   }) {
     if (searchUsers != null) {
@@ -191,6 +178,7 @@ class _$SearchUsersImpl with DiagnosticableTreeMixin implements _SearchUsers {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_SearchUsers value) searchUsers,
+    required TResult Function(_UpdateSearchUsers value) updateSearchUsers,
   }) {
     return searchUsers(this);
   }
@@ -199,6 +187,7 @@ class _$SearchUsersImpl with DiagnosticableTreeMixin implements _SearchUsers {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SearchUsers value)? searchUsers,
+    TResult? Function(_UpdateSearchUsers value)? updateSearchUsers,
   }) {
     return searchUsers?.call(this);
   }
@@ -207,6 +196,7 @@ class _$SearchUsersImpl with DiagnosticableTreeMixin implements _SearchUsers {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SearchUsers value)? searchUsers,
+    TResult Function(_UpdateSearchUsers value)? updateSearchUsers,
     required TResult orElse(),
   }) {
     if (searchUsers != null) {
@@ -219,16 +209,126 @@ class _$SearchUsersImpl with DiagnosticableTreeMixin implements _SearchUsers {
 abstract class _SearchUsers implements SearchUsersEvent {
   const factory _SearchUsers({required final String query}) = _$SearchUsersImpl;
 
-  @override
   String get query;
-  @override
   @JsonKey(ignore: true)
   _$$SearchUsersImplCopyWith<_$SearchUsersImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
+abstract class _$$UpdateSearchUsersImplCopyWith<$Res> {
+  factory _$$UpdateSearchUsersImplCopyWith(_$UpdateSearchUsersImpl value,
+          $Res Function(_$UpdateSearchUsersImpl) then) =
+      __$$UpdateSearchUsersImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$UpdateSearchUsersImplCopyWithImpl<$Res>
+    extends _$SearchUsersEventCopyWithImpl<$Res, _$UpdateSearchUsersImpl>
+    implements _$$UpdateSearchUsersImplCopyWith<$Res> {
+  __$$UpdateSearchUsersImplCopyWithImpl(_$UpdateSearchUsersImpl _value,
+      $Res Function(_$UpdateSearchUsersImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$UpdateSearchUsersImpl
+    with DiagnosticableTreeMixin
+    implements _UpdateSearchUsers {
+  const _$UpdateSearchUsersImpl();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'SearchUsersEvent.updateSearchUsers()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+        .add(DiagnosticsProperty('type', 'SearchUsersEvent.updateSearchUsers'));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$UpdateSearchUsersImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String query) searchUsers,
+    required TResult Function() updateSearchUsers,
+  }) {
+    return updateSearchUsers();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String query)? searchUsers,
+    TResult? Function()? updateSearchUsers,
+  }) {
+    return updateSearchUsers?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String query)? searchUsers,
+    TResult Function()? updateSearchUsers,
+    required TResult orElse(),
+  }) {
+    if (updateSearchUsers != null) {
+      return updateSearchUsers();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SearchUsers value) searchUsers,
+    required TResult Function(_UpdateSearchUsers value) updateSearchUsers,
+  }) {
+    return updateSearchUsers(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_SearchUsers value)? searchUsers,
+    TResult? Function(_UpdateSearchUsers value)? updateSearchUsers,
+  }) {
+    return updateSearchUsers?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SearchUsers value)? searchUsers,
+    TResult Function(_UpdateSearchUsers value)? updateSearchUsers,
+    required TResult orElse(),
+  }) {
+    if (updateSearchUsers != null) {
+      return updateSearchUsers(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateSearchUsers implements SearchUsersEvent {
+  const factory _UpdateSearchUsers() = _$UpdateSearchUsersImpl;
+}
+
+/// @nodoc
 mixin _$SearchUsersState {
+  String? get nextPage => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   List<UserEntity> get usersList => throw _privateConstructorUsedError;
   Object? get failure => throw _privateConstructorUsedError;
@@ -244,7 +344,11 @@ abstract class $SearchUsersStateCopyWith<$Res> {
           SearchUsersState value, $Res Function(SearchUsersState) then) =
       _$SearchUsersStateCopyWithImpl<$Res, SearchUsersState>;
   @useResult
-  $Res call({bool isLoading, List<UserEntity> usersList, Object? failure});
+  $Res call(
+      {String? nextPage,
+      bool isLoading,
+      List<UserEntity> usersList,
+      Object? failure});
 }
 
 /// @nodoc
@@ -260,11 +364,16 @@ class _$SearchUsersStateCopyWithImpl<$Res, $Val extends SearchUsersState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? nextPage = freezed,
     Object? isLoading = null,
     Object? usersList = null,
     Object? failure = freezed,
   }) {
     return _then(_value.copyWith(
+      nextPage: freezed == nextPage
+          ? _value.nextPage
+          : nextPage // ignore: cast_nullable_to_non_nullable
+              as String?,
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -286,7 +395,11 @@ abstract class _$$SearchUsersStateImplCopyWith<$Res>
       __$$SearchUsersStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool isLoading, List<UserEntity> usersList, Object? failure});
+  $Res call(
+      {String? nextPage,
+      bool isLoading,
+      List<UserEntity> usersList,
+      Object? failure});
 }
 
 /// @nodoc
@@ -300,11 +413,16 @@ class __$$SearchUsersStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? nextPage = freezed,
     Object? isLoading = null,
     Object? usersList = null,
     Object? failure = freezed,
   }) {
     return _then(_$SearchUsersStateImpl(
+      nextPage: freezed == nextPage
+          ? _value.nextPage
+          : nextPage // ignore: cast_nullable_to_non_nullable
+              as String?,
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -323,12 +441,15 @@ class __$$SearchUsersStateImplCopyWithImpl<$Res>
 class _$SearchUsersStateImpl extends _SearchUsersState
     with DiagnosticableTreeMixin {
   const _$SearchUsersStateImpl(
-      {this.isLoading = false,
+      {this.nextPage,
+      this.isLoading = false,
       final List<UserEntity> usersList = const [],
       this.failure})
       : _usersList = usersList,
         super._();
 
+  @override
+  final String? nextPage;
   @override
   @JsonKey()
   final bool isLoading;
@@ -346,7 +467,7 @@ class _$SearchUsersStateImpl extends _SearchUsersState
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'SearchUsersState(isLoading: $isLoading, usersList: $usersList, failure: $failure)';
+    return 'SearchUsersState(nextPage: $nextPage, isLoading: $isLoading, usersList: $usersList, failure: $failure)';
   }
 
   @override
@@ -354,6 +475,7 @@ class _$SearchUsersStateImpl extends _SearchUsersState
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'SearchUsersState'))
+      ..add(DiagnosticsProperty('nextPage', nextPage))
       ..add(DiagnosticsProperty('isLoading', isLoading))
       ..add(DiagnosticsProperty('usersList', usersList))
       ..add(DiagnosticsProperty('failure', failure));
@@ -364,6 +486,8 @@ class _$SearchUsersStateImpl extends _SearchUsersState
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SearchUsersStateImpl &&
+            (identical(other.nextPage, nextPage) ||
+                other.nextPage == nextPage) &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
             const DeepCollectionEquality()
@@ -374,6 +498,7 @@ class _$SearchUsersStateImpl extends _SearchUsersState
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      nextPage,
       isLoading,
       const DeepCollectionEquality().hash(_usersList),
       const DeepCollectionEquality().hash(failure));
@@ -388,11 +513,14 @@ class _$SearchUsersStateImpl extends _SearchUsersState
 
 abstract class _SearchUsersState extends SearchUsersState {
   const factory _SearchUsersState(
-      {final bool isLoading,
+      {final String? nextPage,
+      final bool isLoading,
       final List<UserEntity> usersList,
       final Object? failure}) = _$SearchUsersStateImpl;
   const _SearchUsersState._() : super._();
 
+  @override
+  String? get nextPage;
   @override
   bool get isLoading;
   @override

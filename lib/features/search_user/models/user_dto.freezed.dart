@@ -14,6 +14,152 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
+/// @nodoc
+mixin _$UsersListDto {
+  String? get nextPage => throw _privateConstructorUsedError;
+  List<UserDto> get users => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $UsersListDtoCopyWith<UsersListDto> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $UsersListDtoCopyWith<$Res> {
+  factory $UsersListDtoCopyWith(
+          UsersListDto value, $Res Function(UsersListDto) then) =
+      _$UsersListDtoCopyWithImpl<$Res, UsersListDto>;
+  @useResult
+  $Res call({String? nextPage, List<UserDto> users});
+}
+
+/// @nodoc
+class _$UsersListDtoCopyWithImpl<$Res, $Val extends UsersListDto>
+    implements $UsersListDtoCopyWith<$Res> {
+  _$UsersListDtoCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? nextPage = freezed,
+    Object? users = null,
+  }) {
+    return _then(_value.copyWith(
+      nextPage: freezed == nextPage
+          ? _value.nextPage
+          : nextPage // ignore: cast_nullable_to_non_nullable
+              as String?,
+      users: null == users
+          ? _value.users
+          : users // ignore: cast_nullable_to_non_nullable
+              as List<UserDto>,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$UsersListDtoImplCopyWith<$Res>
+    implements $UsersListDtoCopyWith<$Res> {
+  factory _$$UsersListDtoImplCopyWith(
+          _$UsersListDtoImpl value, $Res Function(_$UsersListDtoImpl) then) =
+      __$$UsersListDtoImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String? nextPage, List<UserDto> users});
+}
+
+/// @nodoc
+class __$$UsersListDtoImplCopyWithImpl<$Res>
+    extends _$UsersListDtoCopyWithImpl<$Res, _$UsersListDtoImpl>
+    implements _$$UsersListDtoImplCopyWith<$Res> {
+  __$$UsersListDtoImplCopyWithImpl(
+      _$UsersListDtoImpl _value, $Res Function(_$UsersListDtoImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? nextPage = freezed,
+    Object? users = null,
+  }) {
+    return _then(_$UsersListDtoImpl(
+      nextPage: freezed == nextPage
+          ? _value.nextPage
+          : nextPage // ignore: cast_nullable_to_non_nullable
+              as String?,
+      users: null == users
+          ? _value._users
+          : users // ignore: cast_nullable_to_non_nullable
+              as List<UserDto>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$UsersListDtoImpl extends _UsersListDto {
+  const _$UsersListDtoImpl(
+      {this.nextPage, final List<UserDto> users = const []})
+      : _users = users,
+        super._();
+
+  @override
+  final String? nextPage;
+  final List<UserDto> _users;
+  @override
+  @JsonKey()
+  List<UserDto> get users {
+    if (_users is EqualUnmodifiableListView) return _users;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_users);
+  }
+
+  @override
+  String toString() {
+    return 'UsersListDto(nextPage: $nextPage, users: $users)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UsersListDtoImpl &&
+            (identical(other.nextPage, nextPage) ||
+                other.nextPage == nextPage) &&
+            const DeepCollectionEquality().equals(other._users, _users));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, nextPage, const DeepCollectionEquality().hash(_users));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UsersListDtoImplCopyWith<_$UsersListDtoImpl> get copyWith =>
+      __$$UsersListDtoImplCopyWithImpl<_$UsersListDtoImpl>(this, _$identity);
+}
+
+abstract class _UsersListDto extends UsersListDto {
+  const factory _UsersListDto(
+      {final String? nextPage, final List<UserDto> users}) = _$UsersListDtoImpl;
+  const _UsersListDto._() : super._();
+
+  @override
+  String? get nextPage;
+  @override
+  List<UserDto> get users;
+  @override
+  @JsonKey(ignore: true)
+  _$$UsersListDtoImplCopyWith<_$UsersListDtoImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
 UserDto _$UserDtoFromJson(Map<String, dynamic> json) {
   return _UserDto.fromJson(json);
 }

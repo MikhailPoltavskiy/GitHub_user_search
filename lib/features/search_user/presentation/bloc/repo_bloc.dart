@@ -34,6 +34,7 @@ class RepoBloc extends Bloc<RepoEvent, RepoState> {
       ));
 
       final result = await _remoteDataSource.fetchUserRepos(event.url);
+
       emit(state.copyWith(
         nextPage: result.nextPage,
         isLoading: false,
