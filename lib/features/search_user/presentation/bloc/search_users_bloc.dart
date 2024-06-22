@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:github_user_search/features/search_user/data/remote_data_source.dart';
 import 'package:github_user_search/features/search_user/models/user_entity.dart';
@@ -27,7 +28,7 @@ class SearchUsersBloc extends Bloc<SearchUsersEvent, SearchUsersState> {
         failure: null,
       ));
       final usersList = await _remoteDataSource.searchUsers(event.query);
-      print('BLOC!!!: $usersList');
+      // print('BLOC!!!: $usersList');
 
       emit(SearchUsersState(
         isLoading: false,
@@ -35,7 +36,9 @@ class SearchUsersBloc extends Bloc<SearchUsersEvent, SearchUsersState> {
         failure: null,
       ));
     } catch (error) {
-      print('ERROR');
+      if (kDebugMode) {
+        print('ERROR: $error');
+      }
       emit(state.copyWith(
         isLoading: false,
         failure: error,

@@ -15,6 +15,153 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
+mixin _$ReposListEntity {
+  String? get nextPage => throw _privateConstructorUsedError;
+  List<RepoEntity> get reposListEntity => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $ReposListEntityCopyWith<ReposListEntity> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ReposListEntityCopyWith<$Res> {
+  factory $ReposListEntityCopyWith(
+          ReposListEntity value, $Res Function(ReposListEntity) then) =
+      _$ReposListEntityCopyWithImpl<$Res, ReposListEntity>;
+  @useResult
+  $Res call({String? nextPage, List<RepoEntity> reposListEntity});
+}
+
+/// @nodoc
+class _$ReposListEntityCopyWithImpl<$Res, $Val extends ReposListEntity>
+    implements $ReposListEntityCopyWith<$Res> {
+  _$ReposListEntityCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? nextPage = freezed,
+    Object? reposListEntity = null,
+  }) {
+    return _then(_value.copyWith(
+      nextPage: freezed == nextPage
+          ? _value.nextPage
+          : nextPage // ignore: cast_nullable_to_non_nullable
+              as String?,
+      reposListEntity: null == reposListEntity
+          ? _value.reposListEntity
+          : reposListEntity // ignore: cast_nullable_to_non_nullable
+              as List<RepoEntity>,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$ReposListEntityImplCopyWith<$Res>
+    implements $ReposListEntityCopyWith<$Res> {
+  factory _$$ReposListEntityImplCopyWith(_$ReposListEntityImpl value,
+          $Res Function(_$ReposListEntityImpl) then) =
+      __$$ReposListEntityImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String? nextPage, List<RepoEntity> reposListEntity});
+}
+
+/// @nodoc
+class __$$ReposListEntityImplCopyWithImpl<$Res>
+    extends _$ReposListEntityCopyWithImpl<$Res, _$ReposListEntityImpl>
+    implements _$$ReposListEntityImplCopyWith<$Res> {
+  __$$ReposListEntityImplCopyWithImpl(
+      _$ReposListEntityImpl _value, $Res Function(_$ReposListEntityImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? nextPage = freezed,
+    Object? reposListEntity = null,
+  }) {
+    return _then(_$ReposListEntityImpl(
+      nextPage: freezed == nextPage
+          ? _value.nextPage
+          : nextPage // ignore: cast_nullable_to_non_nullable
+              as String?,
+      reposListEntity: null == reposListEntity
+          ? _value._reposListEntity
+          : reposListEntity // ignore: cast_nullable_to_non_nullable
+              as List<RepoEntity>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ReposListEntityImpl implements _ReposListEntity {
+  const _$ReposListEntityImpl(
+      {this.nextPage, final List<RepoEntity> reposListEntity = const []})
+      : _reposListEntity = reposListEntity;
+
+  @override
+  final String? nextPage;
+  final List<RepoEntity> _reposListEntity;
+  @override
+  @JsonKey()
+  List<RepoEntity> get reposListEntity {
+    if (_reposListEntity is EqualUnmodifiableListView) return _reposListEntity;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_reposListEntity);
+  }
+
+  @override
+  String toString() {
+    return 'ReposListEntity(nextPage: $nextPage, reposListEntity: $reposListEntity)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ReposListEntityImpl &&
+            (identical(other.nextPage, nextPage) ||
+                other.nextPage == nextPage) &&
+            const DeepCollectionEquality()
+                .equals(other._reposListEntity, _reposListEntity));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, nextPage,
+      const DeepCollectionEquality().hash(_reposListEntity));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ReposListEntityImplCopyWith<_$ReposListEntityImpl> get copyWith =>
+      __$$ReposListEntityImplCopyWithImpl<_$ReposListEntityImpl>(
+          this, _$identity);
+}
+
+abstract class _ReposListEntity implements ReposListEntity {
+  const factory _ReposListEntity(
+      {final String? nextPage,
+      final List<RepoEntity> reposListEntity}) = _$ReposListEntityImpl;
+
+  @override
+  String? get nextPage;
+  @override
+  List<RepoEntity> get reposListEntity;
+  @override
+  @JsonKey(ignore: true)
+  _$$ReposListEntityImplCopyWith<_$ReposListEntityImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$RepoEntity {
   String get name => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;

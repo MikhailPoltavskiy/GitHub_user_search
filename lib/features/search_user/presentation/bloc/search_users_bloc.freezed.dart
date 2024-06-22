@@ -123,15 +123,23 @@ class __$$SearchUsersImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SearchUsersImpl implements _SearchUsers {
+class _$SearchUsersImpl with DiagnosticableTreeMixin implements _SearchUsers {
   const _$SearchUsersImpl({required this.query});
 
   @override
   final String query;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SearchUsersEvent.searchUsers(query: $query)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SearchUsersEvent.searchUsers'))
+      ..add(DiagnosticsProperty('query', query));
   }
 
   @override
@@ -312,7 +320,8 @@ class __$$SearchUsersStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SearchUsersStateImpl extends _SearchUsersState {
+class _$SearchUsersStateImpl extends _SearchUsersState
+    with DiagnosticableTreeMixin {
   const _$SearchUsersStateImpl(
       {this.isLoading = false,
       final List<UserEntity> usersList = const [],
@@ -336,8 +345,18 @@ class _$SearchUsersStateImpl extends _SearchUsersState {
   final Object? failure;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SearchUsersState(isLoading: $isLoading, usersList: $usersList, failure: $failure)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SearchUsersState'))
+      ..add(DiagnosticsProperty('isLoading', isLoading))
+      ..add(DiagnosticsProperty('usersList', usersList))
+      ..add(DiagnosticsProperty('failure', failure));
   }
 
   @override

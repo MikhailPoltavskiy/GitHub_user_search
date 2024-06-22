@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:github_user_search/core/app_ui/app_ui.dart';
-import 'package:github_user_search/features/search_user/data/remote_data_source.dart';
-
 import 'package:github_user_search/features/search_user/models/user_entity.dart';
 import 'package:github_user_search/features/search_user/presentation/bloc/repo_bloc.dart';
-import 'package:github_user_search/features/search_user/presentation/bloc/search_users_bloc.dart';
 import 'package:github_user_search/features/search_user/presentation/pages/repos_page.dart';
-import 'package:github_user_search/service_locator.dart';
 
 class UserCardWidget extends StatelessWidget {
   const UserCardWidget({
@@ -20,15 +16,15 @@ class UserCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final imageSize = MediaQuery.of(context).size.width * 0.3;
-    return GestureDetector(
+    return InkWell(
       onTap: () async {
-        // print('Tap CARD WITH NAME: ${user.reposUrl}');
-        // sl<RemoteDataSource>().fetchUserRepos(user.reposUrl);
         context.read<RepoBloc>().add(RepoEvent.fetchRepos(url: user.reposUrl));
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => const ReposPage(),
+            builder: (context) => ReposPage(
+              user: user,
+            ),
           ),
         );
       },

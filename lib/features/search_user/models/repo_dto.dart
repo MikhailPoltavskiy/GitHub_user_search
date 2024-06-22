@@ -6,6 +6,29 @@ part 'repo_dto.freezed.dart';
 part 'repo_dto.g.dart';
 
 @freezed
+class ReposListDto with _$ReposListDto {
+  const factory ReposListDto({
+    String? nextPage,
+    @Default([]) List<RepoDto> repos,
+  }) = _ReposListDto;
+
+  const ReposListDto._();
+
+  factory ReposListDto.fromJson(List<dynamic> json) {
+    return ReposListDto(
+      repos: json.map((e) => RepoDto.fromJson(e as Map<String, dynamic>)).toList(),
+    );
+  }
+
+  ReposListEntity toEntity() {
+    return ReposListEntity(
+      nextPage: nextPage,
+      reposListEntity: repos.map((e) => e.toEntity()).toList(),
+    );
+  }
+}
+
+@freezed
 class RepoDto with _$RepoDto {
   const factory RepoDto({
     @JsonKey(name: 'name') @Default('') String name,

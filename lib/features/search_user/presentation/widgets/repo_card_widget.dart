@@ -7,20 +7,23 @@ class RepoCardWidget extends StatelessWidget {
   const RepoCardWidget({
     super.key,
     required this.repo,
+    required this.index,
   });
 
   final RepoEntity repo;
+  final int index;
 
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(20.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           ConstrainedBox(
-            constraints: BoxConstraints(maxWidth: width * 0.7),
+            constraints: BoxConstraints(maxWidth: width * 0.8),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -46,23 +49,22 @@ class RepoCardWidget extends StatelessWidget {
                       repo.machineCode,
                       style: AppTextStyles.text.copyWith(fontSize: 12, color: AppColors.grey),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 20,
                     ),
                     Text(repo.commitAt.toString()),
                   ],
                 ),
-                Text(repo.defaultBranch),
-                Text(repo.forksCount.toString()),
-                Text(repo.starsCount.toString()),
+                Text('Default branch: ${repo.defaultBranch}'),
+                Text('forks: ${repo.forksCount.toString()}'),
+                Text('stars: ${repo.starsCount.toString()}'),
                 Text(
-                  repo.description,
-                  // softWrap: true,
+                  'description: ${repo.description}',
                 ),
               ],
             ),
           ),
-          TextButton(onPressed: () {}, child: Text('Detail...')),
+          Text((index + 1).toString()),
         ],
       ),
     );

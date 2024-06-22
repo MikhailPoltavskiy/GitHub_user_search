@@ -3,6 +3,8 @@ part of 'repo_bloc.dart';
 @freezed
 class RepoState with _$RepoState {
   const factory RepoState({
+    String? nextPage,
+    String? previousRequest,
     @Default(false) bool isLoading,
     @Default([]) List<RepoEntity> reposList,
     Object? failure,

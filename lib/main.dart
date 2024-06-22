@@ -4,7 +4,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:github_user_search/features/search_user/data/remote_data_source.dart';
 import 'package:github_user_search/features/search_user/presentation/bloc/repo_bloc.dart';
 import 'package:github_user_search/features/search_user/presentation/bloc/search_users_bloc.dart';
-import 'package:github_user_search/features/search_user/presentation/pages/users_page.dart';
+import 'package:github_user_search/features/search_user/presentation/pages/search_users_page.dart';
 import 'package:github_user_search/service_locator.dart' as di;
 import 'package:github_user_search/service_locator.dart';
 
@@ -46,7 +46,7 @@ class MainApp extends StatelessWidget {
           // body: Center(
           //   child: Text('Hello World! \n${dotenv.env['GitHub_token']}'),
           // ),
-          body: UsersPage(),
+          body: SearchUsersPage(),
         ),
       ),
     );
