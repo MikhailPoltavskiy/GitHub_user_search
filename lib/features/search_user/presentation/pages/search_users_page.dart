@@ -75,12 +75,6 @@ class _SearchUsersPageState extends State<SearchUsersPage> {
             onPressed: _onSearch,
             icon: const Icon(Icons.search),
           ),
-          IconButton(
-            onPressed: () {
-              context.read<RepoBloc>().add(RepoEvent.fetchRepos(url: 'https://api.github.com/users/dart-lang/repos'));
-            },
-            icon: const Icon(Icons.download),
-          ),
         ],
       ),
       body: const UsersListWidget(),

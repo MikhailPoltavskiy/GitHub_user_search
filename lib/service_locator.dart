@@ -27,22 +27,18 @@ Future<void> init() async {
     ),
   );
 
-  // Repository
-  sl.registerLazySingleton<RemoteDataSource>(
-    () => RemoteDataSource(
-      sl(),
-    ),
-  );
-
   // Core
-
-  sl.registerLazySingleton(() => Dio());
-
-  /////////////////////////////////////////////////////////////
-
-  // advanced
-
-  Dio dio = Dio();
+  final dio = Dio();
   final token = dotenv.env['GitHub_token'];
-  dio.options.headers['Authorization'] = 'Bearer $token';
+  if (token != null) {
+    dio.options.headers['Authorization'] = 'Bearer $token';
+  } else {
+    throw Exception('GitHub token is not set in .env file');
+  }
+
+  sl.registerSingleton(() => dio);
+
+  // Repository
+  final remoteDataSource = RemoteDataSource(dio);
+  sl.registerSingleton<RemoteDataSource>(remoteDataSource);
 }
