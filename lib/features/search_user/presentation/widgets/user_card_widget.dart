@@ -4,6 +4,7 @@ import 'package:github_user_search/core/app_ui/app_ui.dart';
 import 'package:github_user_search/features/search_user/models/user_entity.dart';
 import 'package:github_user_search/features/search_user/presentation/bloc/repo_bloc.dart';
 import 'package:github_user_search/features/search_user/presentation/pages/repos_page.dart';
+import 'package:github_user_search/features/search_user/presentation/widgets/followers_widget.dart';
 
 class UserCardWidget extends StatelessWidget {
   const UserCardWidget({
@@ -76,9 +77,8 @@ class UserCardWidget extends StatelessWidget {
                           label: null,
                           value: user.name,
                         ),
-                        _LineOfText(
-                          label: 'Followers: ',
-                          value: user.followersCount ?? '0',
+                        FollowersWidget(
+                          followersUrl: user.followersUrl,
                         ),
                       ],
                     ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:github_user_search/features/search_user/data/remote_data_source.dart';
+import 'package:github_user_search/features/search_user/presentation/bloc/followers_cubit.dart';
 import 'package:github_user_search/features/search_user/presentation/bloc/repo_bloc.dart';
 import 'package:github_user_search/features/search_user/presentation/bloc/search_users_bloc.dart';
 import 'package:github_user_search/features/search_user/presentation/pages/search_users_page.dart';
@@ -27,25 +27,13 @@ class MainApp extends StatelessWidget {
         ),
         BlocProvider<RepoBloc>(
           create: (context) => sl<RepoBloc>(),
-        )
+        ),
+        BlocProvider<FollowersCubit>(
+          create: (context) => sl<FollowersCubit>(),
+        ),
       ],
       child: const MaterialApp(
         home: Scaffold(
-          // appBar: AppBar(
-          //   actions: [
-          //     IconButton(
-          //         onPressed: () {
-          //           // sl<RemoteDataSource>().searchUsers('ztx');
-          //           context.read<SearchUsersBloc>().add(
-          //                 SearchUsersEvent.searchUsers(query: 'ztx1213'),
-          //               );
-          //         },
-          //         icon: const Icon(Icons.download))
-          //   ],
-          // ),
-          // body: Center(
-          //   child: Text('Hello World! \n${dotenv.env['GitHub_token']}'),
-          // ),
           body: SearchUsersPage(),
         ),
       ),

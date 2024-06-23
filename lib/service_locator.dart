@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get_it/get_it.dart';
 import 'package:github_user_search/features/search_user/data/remote_data_source.dart';
+import 'package:github_user_search/features/search_user/presentation/bloc/followers_cubit.dart';
 import 'package:github_user_search/features/search_user/presentation/bloc/repo_bloc.dart';
 import 'package:github_user_search/features/search_user/presentation/bloc/search_users_bloc.dart';
 
@@ -12,12 +13,19 @@ Future<void> init() async {
   sl.registerLazySingleton(
     () => SearchUsersBloc(
       sl<RemoteDataSource>(),
+      sl<FollowersCubit>(),
     ),
   );
 
   sl.registerLazySingleton(() => RepoBloc(
         sl<RemoteDataSource>(),
       ));
+
+  sl.registerLazySingleton(
+    () => FollowersCubit(
+      remoteDataSource: sl<RemoteDataSource>(),
+    ),
+  );
 
   // Repository
   sl.registerLazySingleton<RemoteDataSource>(
